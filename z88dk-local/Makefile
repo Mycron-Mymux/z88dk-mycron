@@ -15,6 +15,7 @@ ZCC = $(DOCKER) zcc
 Z80ASM = $(DOCKER) z80asm
 
 INC = -I/work/z88dk-local/target/mycron/include -I/z88dk-local/target/mycron/include/
+CFLAGS= -clib=classic -compiler=sccz80 $(INC)
 
 OBJDIR = build/obj
 LIBDIR = build/lib
@@ -44,13 +45,13 @@ $(OBJDIR) $(LIBDIR):
 	mkdir -p $@
 
 $(OBJDIR)/%.o: target/mycron/classic/disk/%.asm | $(OBJDIR)
-	$(ZCC) +z80 -c -O2 $(INC) -o /work/$@ /work/$<
+	$(ZCC) +z80 -c -O2 $(CFLAGS) -o /work/$@ /work/$<
 
 $(OBJDIR)/%.o: target/mycron/classic/disk/%.c | $(OBJDIR)
-	$(ZCC) +z80 -c -O2 $(INC) -o /work/$@ /work/$<
+	$(ZCC) +z80 -c -O2 $(CFLAGS) -o /work/$@ /work/$<
 
 $(OBJDIR)/%.o: target/mycron/classic/alloc/%.c | $(OBJDIR)
-	$(ZCC) +z80 -c -O2 $(INC) -o /work/$@ /work/$<
+	$(ZCC) +z80 -c -O2 $(CFLAGS) -o /work/$@ /work/$<
 
 $(LIBDIR)/mycron_disk.lib: $(DISK_OBJS) | $(LIBDIR)
 	printf '%s\n' $(addprefix /work/,$(DISK_OBJS)) > build/mycron_disk_objects.lst
