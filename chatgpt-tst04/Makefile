@@ -15,12 +15,12 @@ ZCC = docker run --rm \
 
 CFLAGS = +mycron -O3 -vn -m -create-app
 
-TARGS = disk_test prog_load alloc_test
+TARGS = disk_test prog_load alloc_test disk_ll
 
 all: $(TARGS)
 
 % : %.c
-	$(ZCC) $(CFLAGS) $< -o $@ 
+	$(ZCC) $(CFLAGS) $< -o $@  -lmycron_alloc -lmycron_disk
 
 clean:
 	rm -f *.o *.bin *.map *.lis *.sym $(TARGS) hello_* zcc_opt.def

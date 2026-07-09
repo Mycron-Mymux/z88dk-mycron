@@ -28,3 +28,10 @@ z88dk-local/target/mycron/classic/mycron_disk.asm
 z88dk-local/target/mycron/classic/mycron_disk.c
 z88dk-local/target/mycron/classic/mycron_alloc.c
 
+
+TODO: 
+======
+Probably better size-wise to create a disk and an alloc library, compile them and link to them when writing programs. 
+That way, only the basic io is stored in the z88dk target.
+
+
