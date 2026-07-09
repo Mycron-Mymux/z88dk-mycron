@@ -15,7 +15,6 @@ ZCC = docker run --rm \
 
 CFLAGS = +mycron -O3 -vn -m -create-app # -Oz --opt-code-size
 
-
 all: hello.bin
 
 # hello.bin: examples/hello.c z88dk-local/config/mycron.cfg z88dk-local/target/mycron/classic/mycron_stdio.asm z88dk-local/target/mycron/include/mycron.h

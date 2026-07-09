@@ -1,4 +1,18 @@
-ZCC      = zcc
+IMAGE = z88dk/z88dk
+
+ZLOCAL = $(CURDIR)/../z88dk-local/
+
+# Adjust if your z88dk container reports a different ZCCCFG.
+ZCCCFG_IN_CONTAINER = /opt/z88dk/lib/config
+
+ZCC = docker run --rm \
+	-v $(CURDIR):/work \
+	-v $(ZLOCAL):/z88dk-local/ \
+	-v $(ZLOCAL)/config/mycron.cfg:$(ZCCCFG_IN_CONTAINER)/mycron.cfg:ro \
+	-w /work \
+	$(IMAGE) \
+	zcc
+
 TARGET   = +z80
 COMPILER = -compiler=sccz80
 ORG = -zorg=0x2000
