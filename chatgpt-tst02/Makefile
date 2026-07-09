@@ -3,7 +3,7 @@ TARGET   = +z80
 COMPILER = -compiler=sccz80
 
 CLIB= -clib=classic
-ORG = -zorg=0x3000
+ORG = -zorg=0x2000
 STACK= -pragma-define:REGISTER_SP=0xfff0
 INTR = -pragma-define:CRT_ENABLE_EIDI=0
 

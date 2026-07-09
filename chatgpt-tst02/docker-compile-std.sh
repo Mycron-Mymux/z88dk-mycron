@@ -1,5 +1,5 @@
 docker run --rm -v "$(pwd)":/src  -w /src z88dk/z88dk \
-       zcc +z80 -clib=classic -compiler=sccz80 -O3 -vn  -zorg=0x3000 \
+       zcc +z80 -clib=classic -compiler=sccz80 -O3 -vn  -zorg=0x2000 \
        -pragma-define:REGISTER_SP=0xfff0 \
        -pragma-define:CRT_ENABLE_EIDI=0 \
        -pragma-redirect:fputc_cons=mycron_fputc_cons \

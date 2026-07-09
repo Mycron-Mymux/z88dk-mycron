@@ -21,7 +21,7 @@
         ; JMB: makes more sense to use the full 64K memory
         ; defc    MYCRON_ORG      = 0800h
         ; defc    MYCRON_STACK    = 0BE4h
-        defc    MYCRON_ORG      = 03000h
+        defc    MYCRON_ORG      = 02000h
         defc    MYCRON_STACK    = 0FFF0h
 
         defc    MYCROP_MON      = 0040h
@@ -34,7 +34,7 @@
         
         EXTERN  _main
 
-        ; use -zorg=0x3000 instead
+        ; use -zorg=0x2000 instead
         ; org     MYCRON_ORG
 
 __Start:

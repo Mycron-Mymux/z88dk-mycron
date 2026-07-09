@@ -14,7 +14,7 @@ docker run --rm \
        -v $Z88LOCAL/config/mycron.cfg:/opt/z88dk/lib/config/mycron.cfg:ro \
        -w /src z88dk/z88dk \
        zcc +mycron -clib=classic -O3 -vn -m -create-app \
-       -zorg=0x3000 \
+       -zorg=0x2000 \
        -pragma-define:REGISTER_SP=0xfff0 \
        -pragma-define:CRT_ENABLE_EIDI=0 \
        -I/z88dk-local/target/mycron/include \
@@ -32,7 +32,7 @@ docker run --rm \
        -v $Z88LOCAL/config/mycron.cfg:/opt/z88dk/lib/config/mycron.cfg:ro \
        -w /src z88dk/z88dk \
        zcc +mycron -O3 -vn -m -create-app \
-        -zorg=0x3000 \
+        -zorg=0x2000 \
        -pragma-define:REGISTER_SP=0xfff0 \
        -pragma-define:CRT_ENABLE_EIDI=0 \
        -I/z88dk-local/target/mycron/include \

@@ -13,7 +13,7 @@ ZCC = docker run --rm \
 	$(IMAGE) \
 	zcc
 
-CFLAGS = +mycron -O3 -vn -m -create-app
+CFLAGS = +mycron -O3 -vn -m -create-app # -Oz --opt-code-size
 
 
 all: hello.bin
