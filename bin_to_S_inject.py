@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import sys
+import time
 
 
 targ_addr = int(sys.argv[1], 16)
@@ -15,6 +16,12 @@ s = s.upper()
 
 print(s)
 if targ_pts:
+    ts = s + "\n"
     with open(f"/dev/pts/{targ_pts}", 'w') as f:
-        f.write(s + "\n")
+        while len(ts) > 0:
+            blk, ts = ts[:1024], ts[1024:]
+            print(f"writing block len {len(blk)} rest {len(ts)}")
+            f.write(blk)
+            time.sleep(0.1)
+            f.flush()
 
